@@ -6,7 +6,8 @@ import java.util.Random;
 public class card_handler {
     static int newRandom;
     static HashSet<Integer> numbers = new HashSet<>();
-    static int userHandVal = 0;
+    static int bjCardVal = 0;
+    static boolean GotAnAce = false;
     public static String getCard() {
         Random rand = new Random();
         do{
@@ -20,66 +21,90 @@ public class card_handler {
         String printValue = "";
         if (num <= 13){
             if(num == 1){
-                printValue = ("Ace of Hearts");
-            }else if(10 <= num){
-                printValue = (num + " of Hearts");
-            }
-            if(num == 11){
-                printValue = ("Jack of Hearts");
-            }
-            if(num == 12){
-                printValue = ("Queen of Hearts");
-            }
-            if(num == 13){
-                printValue = ("King of Hearts");
+                printValue = "Ace of Hearts";
+                bjCardVal = 11;
+                GotAnAce = true;
+            } else if (num >= 2 && num <= 9) {
+                printValue = num + " of Hearts";
+                bjCardVal = num;
+            } else if (num == 10) {
+                printValue = "10 of Hearts";
+                bjCardVal = 10;
+            } else if (num == 11) {
+                printValue = "Jack of Hearts";
+                bjCardVal = 10;
+            } else if (num == 12) {
+                printValue = "Queen of Hearts";
+                bjCardVal = 10;
+            } else if (num == 13) {
+                printValue = "King of Hearts";
+                bjCardVal = 10;
             }
         }else if(num<=26){
             num = num - 13;
             if(num == 1){
-                printValue = ("Ace of Clubs");
-            }else if(10 <= num){
-                printValue = (num + " of Clubs");
-            }
-            if(num == 11){
-                printValue = ("Jack of Clubs");
-            }
-            if(num == 12){
-                printValue = ("Queen of Clubs");
-            }
-            if(num == 13){
-                printValue = ("King of Clubs");
+                printValue = "Ace of Clubs";
+                bjCardVal = 11;
+                GotAnAce = true;
+            } else if (num >= 2 && num <= 9) {
+                printValue = num + " of Clubs";
+                bjCardVal = num;
+            } else if (num == 10) {
+                printValue = "10 of Clubs";
+                bjCardVal = 10;
+            } else if (num == 11) {
+                printValue = "Jack of Clubs";
+                bjCardVal = 10;
+            } else if (num == 12) {
+                printValue = "Queen of Clubs";
+                bjCardVal = 10;
+            } else if (num == 13) {
+                printValue = "King of Clubs";
+                bjCardVal = 10;
             }
         }else if(num<=39){
             num = num - 26;
             if(num == 1){
-                printValue = ("Ace of Spades");
-            }else if(10 <= num){
-                printValue = (num + " of Spades");
-            }
-            if(num == 11){
-                printValue = ("Jack of Spades");
-            }
-            if(num == 12){
-                printValue = ("Queen of Spades");
-            }
-            if(num == 13){
-                printValue = ("King of Spades");
+                printValue = "Ace of Spades";
+                bjCardVal = 11;
+                GotAnAce = true;
+            } else if (num >= 2 && num <= 9) {
+                printValue = num + " of Spades";
+                bjCardVal = num;
+            } else if (num == 10) {
+                printValue = "10 of Spades";
+                bjCardVal = 10;
+            } else if (num == 11) {
+                printValue = "Jack of Spades";
+                bjCardVal = 10;
+            } else if (num == 12) {
+                printValue = "Queen of Spades";
+                bjCardVal = 10;
+            } else if (num == 13) {
+                printValue = "King of Spades";
+                bjCardVal = 10;
             }
         }else{
             num = num - 39;
             if(num == 1){
-                printValue = ("Ace of Diamonds");
-            }else if(10 <= num){
-                printValue = (num + " of Diamonds");
-            }
-            if(num == 11){
-                printValue = ("Jack of Diamonds");
-            }
-            if(num == 12){
-                printValue = ("Queen of Diamonds");
-            }
-            if(num == 13){
-                printValue = ("King of Diamonds");
+                printValue = "Ace of Diamonds";
+                bjCardVal = 11;
+                GotAnAce = true;
+            } else if (num >= 2 && num <= 9) {
+                printValue = num + " of Diamonds";
+                bjCardVal = num;
+            } else if (num == 10) {
+                printValue = "10 of Diamonds";
+                bjCardVal = 10;
+            } else if (num == 11) {
+                printValue = "Jack of Diamonds";
+                bjCardVal = 10;
+            } else if (num == 12) {
+                printValue = "Queen of Diamonds";
+                bjCardVal = 10;
+            } else if (num == 13) {
+                printValue = "King of Diamonds";
+                bjCardVal = 10;
             }
         }
         return printValue;

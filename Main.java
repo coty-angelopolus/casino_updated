@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
-    static int userTotal = 0;
+    static int userTotal = 0; static String username = ""; static String user_password = "";
     public static void main(String[] args) throws IOException {
 
         System.out.println("\n\nHello User Welcome to The Clam Betting Services");
@@ -30,7 +30,7 @@ public class Main {
 
     }
 
-    public static void game_selection(){
+    public static void game_selection() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWhat would you like to play today?");
         System.out.println("Choose from the following selection");
@@ -67,6 +67,8 @@ public class Main {
                         String Tpass = scanner.nextLine();
                         if (Tpass.equals(Tuserpass)) {
                             System.out.println("Account login successful!");
+                            username = userFind;
+                            user_password = Tuserpass;
                             System.out.println("Current account value: " + userTotal);
                             break;
                         }else{
@@ -91,8 +93,8 @@ public class Main {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filepath, true));
         scanner = new Scanner(System.in);
         System.out.print("\nEnter in Username: ");
-        String username = scanner.nextLine();
-        System.out.println("Is this correct: " + username + "?\nY or N");
+        String username_cre = scanner.nextLine();
+        System.out.println("Is this correct: " + username_cre + "?\nY or N");
         System.out.print("> ");
         String confirm = scanner.nextLine();
         if (confirm.equals("n") || confirm.equals("N")) {
@@ -106,7 +108,9 @@ public class Main {
         String password_check = scanner.nextLine();
         if (password_check.equals(password)) {
             System.out.println("Passwords match");
-            writer.write(Objects.requireNonNull(encryption_tool(1, username)));
+            username = username_cre;
+            user_password = password;
+            writer.write(Objects.requireNonNull(encryption_tool(1, username_cre)));
             writer.newLine();
             writer.write(Objects.requireNonNull(encryption_tool(1,password)));
             writer.newLine();
